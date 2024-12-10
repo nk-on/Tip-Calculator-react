@@ -24,7 +24,7 @@ export default function Container() {
     },
   ]
   return (
-    <div className=" px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
+    <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
       <div className="content-center	border border-red w-[50%] h-full">
         <Form title={"Bill"} />
         <p>Select tip</p>
@@ -36,6 +36,9 @@ export default function Container() {
           }
         </div>
         <Form  title={"Amount of People"}/>
+      </div>
+      <div className="w-[50%] h-[70%] mt-[10%]">
+        <div className="w-full h-full bg-[#01484d] rounded-[5px] content-center"></div>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 export default function Form( title :{title:string}) {
-  console.log(title)
   return (
     <>
       <div className="flex flex-col">
