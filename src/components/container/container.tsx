@@ -1,0 +1,42 @@
+import Form from "../form/form";
+import PercentageButton from "../percentageButton/PercentageButton";
+export default function Container() {
+  const buttons = [
+    {
+      id:1,
+      percentage:5
+    },
+    {
+      id:2,
+      percentage:10
+    },
+    {
+      id:3,
+      percentage:15
+    },
+    {
+      id:4,
+      percentage:20
+    },
+    {
+      id:5,
+      percentage:25
+    },
+  ]
+  return (
+    <div className=" px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
+      <div className="content-center	border border-red w-[50%] h-full">
+        <Form title={"Bill"} />
+        <p>Select tip</p>
+        <div className="grid grid-cols-3 gap-[5px]">
+          {
+            buttons.map((button)=>{
+              return <PercentageButton percentage={button.percentage}/>
+            })
+          }
+        </div>
+        <Form  title={"Amount of People"}/>
+      </div>
+    </div>
+  );
+}
