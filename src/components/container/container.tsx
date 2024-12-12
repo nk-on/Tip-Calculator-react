@@ -1,5 +1,6 @@
 import Form from "../form/form";
 import PercentageButton from "../percentageButton/PercentageButton";
+import DataContainer from "../dataContainer/dataContainer";
 export default function Container() {
   const buttons = [
     {
@@ -31,14 +32,17 @@ export default function Container() {
         <div className="grid grid-cols-3 gap-[5px]">
           {
             buttons.map((button)=>{
-              return <PercentageButton percentage={button.percentage}/>
+              return <PercentageButton key={button.id} percentage={button.percentage}/>
             })
           }
         </div>
         <Form  title={"Amount of People"}/>
       </div>
       <div className="w-[50%] h-[70%] mt-[10%]">
-        <div className="w-full h-full bg-[#01484d] rounded-[5px] content-center"></div>
+        <div className="w-full h-full bg-[#01484d] rounded-[10px] content-center">
+          <DataContainer title={"Tip amount"} amount={"0.00$"}/>
+          <DataContainer title={"Total amount"} amount={"0.00$"}/>
+        </div>
       </div>
     </div>
   );
