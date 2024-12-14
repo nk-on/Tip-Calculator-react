@@ -1,4 +1,4 @@
-export default function DataContainer({title,amount}:{title:string,amount:string}){
+export default function DataContainer({title,amount}:{title:string,amount:number}){
     return <div className="flex justify justify-around w-full">
         <div>
             <p className="text-[#F4FAFA] font-bold">{title}</p>
