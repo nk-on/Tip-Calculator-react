@@ -29,7 +29,7 @@ export default function Container() {
   const [people, setPeople] = useState<number>(0);
   const [percentage, setPercentage] = useState<number>(0);
   const [tipAmount, setTipAmount] = useState<number>(0);
-  const [amountPerPerson, setamountPerPerson] = useState<number>(0);
+  const [totalAmount, setTotalAmount] = useState<number>(0);
   return (
     <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
       <div className="content-center	border border-red w-[50%] h-full">
@@ -45,6 +45,7 @@ export default function Container() {
                 bill = {bill}
                 people = {people}
                 setTipAmount = {setTipAmount}
+                setTotalAmount={setTotalAmount}
               />
             );
           })}
@@ -58,7 +59,7 @@ export default function Container() {
       <div className="w-[50%] h-[70%] mt-[10%]">
         <div className="w-full h-full bg-[#01484d] rounded-[10px] content-center">
           <DataContainer title={"Tip amount"} amount={tipAmount} />
-          <DataContainer title={"Total amount"} amount={amountPerPerson} />
+          <DataContainer title={"Total amount"} amount={totalAmount} />
         </div>
       </div>
     </div>
