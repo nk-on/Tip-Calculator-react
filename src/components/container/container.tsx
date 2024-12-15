@@ -1,7 +1,7 @@
 import Form from "../form/form";
 import PercentageButton from "../percentageButton/PercentageButton";
 import DataContainer from "../dataContainer/dataContainer";
-import { useState } from "react";
+import { useRef, useState } from "react";
 export default function Container() {
   const buttons = [
     {
@@ -27,7 +27,7 @@ export default function Container() {
   ];
   const [bill, setBill] = useState<number>(0);
   const [people, setPeople] = useState<number>(0);
-  const [percentage, setPercentage] = useState<number>(0);
+  const percentage = useRef(0);
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
   return (
@@ -37,11 +37,11 @@ export default function Container() {
         <p>Select tip</p>
         <div className="grid grid-cols-3 gap-[5px]">
           {buttons.map((button) => {
+            percentage.current = button.percentage;
             return (
               <PercentageButton
                 key={button.id}
-                percentage={button.percentage}
-                setPercentage={setPercentage}
+                percentage={percentage.current}
                 bill = {bill}
                 people = {people}
                 setTipAmount = {setTipAmount}
