@@ -5,7 +5,7 @@ export default function DataContainer({title,amount}:{title:string,amount:number
             <p>/person</p>
         </div>
         <div>
-            <p className="text-[#26c0ab]">{amount}</p>
+            <p className="text-[#26c0ab]">{amount.toFixed(2)}$</p>
         </div>
     </div>
 }
