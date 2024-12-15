@@ -26,8 +26,8 @@ export default function Container() {
       percentage: 25,
     },
   ];
-  const [bill, setBill] = useState<number>(0);
-  const [people, setPeople] = useState<number>(0);
+  const [bill, setBill] = useState<number | string>("");
+  const [people, setPeople] = useState<number | string>("");
   const percentage = useRef(0);
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);

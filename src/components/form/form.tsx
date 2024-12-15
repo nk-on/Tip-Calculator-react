@@ -1,9 +1,9 @@
 interface propType{
-  people:number,
-  bill:number,
+  people:number | string,
+  bill:number | string,
   title:string,
-  setBill:React.Dispatch<React.SetStateAction<number>>,
-  setPeople:React.Dispatch<React.SetStateAction<number>>,
+  setBill:React.Dispatch<React.SetStateAction<number | string>>,
+  setPeople:React.Dispatch<React.SetStateAction<number | string>>,
 }
 export default function Form( {people,bill,title,setBill,setPeople}:propType){
   return (
