@@ -34,7 +34,13 @@ export default function Container() {
   return (
     <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
       <div className="content-center	border border-red w-[50%] h-full">
-        <Form title={"Bill"} setBill={setBill} setPeople={setPeople} />
+        <Form
+          title={"Bill"}
+          bill={bill}
+          people={people}
+          setBill={setBill}
+          setPeople={setPeople}
+        />
         <p>Select tip</p>
         <div className="grid grid-cols-3 gap-[5px]">
           {buttons.map((button) => {
@@ -53,6 +59,8 @@ export default function Container() {
         </div>
         <Form
           title={"Amount of People"}
+          bill={bill}
+          people={people}
           setBill={setBill}
           setPeople={setPeople}
         />
@@ -61,7 +69,7 @@ export default function Container() {
         <div className="w-full h-full bg-[#01484d] rounded-[10px]   flex flex-col justify-around items-center">
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
-          <ResetButton />
+          <ResetButton setTipAmount = {setTipAmount} setTotalAmount = {setTotalAmount} setBill={setBill} setPeople={setPeople} />
         </div>
       </div>
     </div>

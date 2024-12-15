@@ -1,9 +1,11 @@
 interface propType{
+  people:number,
+  bill:number,
   title:string,
   setBill:React.Dispatch<React.SetStateAction<number>>,
   setPeople:React.Dispatch<React.SetStateAction<number>>,
 }
-export default function Form( {title,setBill,setPeople}:propType){
+export default function Form( {people,bill,title,setBill,setPeople}:propType){
   return (
     <>
       <div className="flex flex-col">
@@ -14,7 +16,7 @@ export default function Form( {title,setBill,setPeople}:propType){
           }else{
             setPeople(Number(event.target.value))
           }
-        }}/>
+        }} value={title === "Bill" ? bill:people}/>
       </div>
     </>
   );
