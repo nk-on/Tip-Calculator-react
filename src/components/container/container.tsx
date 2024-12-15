@@ -2,6 +2,7 @@ import Form from "../form/form";
 import PercentageButton from "../percentageButton/PercentageButton";
 import DataContainer from "../dataContainer/dataContainer";
 import { useRef, useState } from "react";
+import ResetButton from "../resetButton/resetButton";
 export default function Container() {
   const buttons = [
     {
@@ -42,9 +43,9 @@ export default function Container() {
               <PercentageButton
                 key={button.id}
                 percentage={percentage.current}
-                bill = {bill}
-                people = {people}
-                setTipAmount = {setTipAmount}
+                bill={bill}
+                people={people}
+                setTipAmount={setTipAmount}
                 setTotalAmount={setTotalAmount}
               />
             );
@@ -56,10 +57,11 @@ export default function Container() {
           setPeople={setPeople}
         />
       </div>
-      <div className="w-[50%] h-[70%] mt-[10%]">
-        <div className="w-full h-full bg-[#01484d] rounded-[10px] content-center">
+      <div className="w-[50%] h-[70%] mt-[10%]	">
+        <div className="w-full h-full bg-[#01484d] rounded-[10px]   flex flex-col justify-around items-center">
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
+          <ResetButton />
         </div>
       </div>
     </div>
