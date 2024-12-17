@@ -28,7 +28,7 @@ export default function Container() {
   ];
   const [bill, setBill] = useState<number | string>("");
   const [people, setPeople] = useState<number | string>("");
-  const percentage = useRef(0);
+  const percentage = useRef<number>(0);
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
   return (
