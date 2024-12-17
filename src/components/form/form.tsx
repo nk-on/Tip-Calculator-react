@@ -2,8 +2,8 @@ interface propType{
   people:number | string,
   bill:number | string,
   title:string,
-  setBill:React.Dispatch<React.SetStateAction<number | string>>,
-  setPeople:React.Dispatch<React.SetStateAction<number | string>>,
+  setBill:React.Dispatch<React.SetStateAction<string>>,
+  setPeople:React.Dispatch<React.SetStateAction< string>>,
 }
 export default function Form( {people,bill,title,setBill,setPeople}:propType){
   return (
@@ -12,9 +12,9 @@ export default function Form( {people,bill,title,setBill,setPeople}:propType){
         {title}
         <input type="number" className="w-[80%] h-[50px] bg-[#c4e4e6]" onChange={(event)=>{
           if(title === "Bill"){
-            setBill(Number(event.target.value))
+            setBill(event.target.value)
           }else{
-            setPeople(Number(event.target.value))
+            setPeople(event.target.value)
           }
         }} value={title === "Bill" ? bill:people}/>
       </div>

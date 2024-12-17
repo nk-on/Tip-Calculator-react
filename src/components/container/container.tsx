@@ -3,6 +3,7 @@ import PercentageButton from "../percentageButton/PercentageButton";
 import DataContainer from "../dataContainer/dataContainer";
 import { useRef, useState } from "react";
 import ResetButton from "../resetButton/resetButton";
+import CustomForm from "../customForm/customForm";
 export default function Container() {
   const buttons = [
     {
@@ -26,8 +27,8 @@ export default function Container() {
       percentage: 25,
     },
   ];
-  const [bill, setBill] = useState<number | string>("");
-  const [people, setPeople] = useState<number | string>("");
+  const [bill, setBill] = useState<string>("");
+  const [people, setPeople] = useState< string>("");
   const percentage = useRef<number>(0);
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
@@ -56,6 +57,12 @@ export default function Container() {
               />
             );
           })}
+          <CustomForm
+            bill={bill}
+            people={people}
+            setTipAmount={setTipAmount}
+            setTotalAmount={setTotalAmount}
+          />
         </div>
         <Form
           title={"Amount of People"}
@@ -69,7 +76,12 @@ export default function Container() {
         <div className="w-full h-full bg-[#01484d] rounded-[10px]   flex flex-col justify-around items-center">
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
-          <ResetButton setTipAmount = {setTipAmount} setTotalAmount = {setTotalAmount} setBill={setBill} setPeople={setPeople} />
+          <ResetButton
+            setTipAmount={setTipAmount}
+            setTotalAmount={setTotalAmount}
+            setBill={setBill}
+            setPeople={setPeople}
+          />
         </div>
       </div>
     </div>

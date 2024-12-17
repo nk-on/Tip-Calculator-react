@@ -9,10 +9,8 @@ export default function PercentageButton({percentage,bill,people,setTipAmount, s
     return <>
         <button className=" h-[50px] bg-[#00494d] text-[#fff] rounded-[5px]" onClick={
             ()=>{
-               if(typeof bill === "number" &&  typeof people === "number"){
-                setTipAmount((bill*percentage)/100);
-                setTotalAmount(((bill*percentage)/100)*people)
-               }
+                setTipAmount((Number(bill)*percentage)/100);
+                setTotalAmount(((Number(bill)*percentage)/100)*Number(people))
             }
         }>
             {percentage}

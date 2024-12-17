@@ -1,21 +1,19 @@
-import { useRef } from "react";
+import {  useState } from "react";
 
 interface propType{
-    bill:number | string,
-    people:number | string,
+    bill:string,
+    people:string,
     setTipAmount:React.Dispatch<React.SetStateAction<number>>,
     setTotalAmount:React.Dispatch<React.SetStateAction<number>>,
 }
 export default function CustomForm({bill,people,setTipAmount, setTotalAmount}:propType){
-    const percentage = useRef<number | string>("")
+    const [percentage,setPercentage] = useState<string>("")
     return <>
-     <input type="number" className="bg-[#F4FAFA]" placeholder="Custom" value={percentage.current} onChange={
+     <input type="number" className="bg-[#F4FAFA]" placeholder="Custom" value={percentage} onChange={
             (event)=>{
-              percentage.current = Number(event.target.value);
-               if(typeof bill === "number" &&  typeof people === "number" && typeof percentage.current === "number"){
-                setTipAmount((bill*percentage.current)/100);
-                setTotalAmount(((bill*percentage.current)/100)*people)
-               }
+                setPercentage(event.target.value)
+                setTipAmount((Number(bill)*Number(percentage))/100);
+                setTotalAmount(((Number(bill)*Number(percentage))/100)*Number(people))
             }
         }></input>
     </>

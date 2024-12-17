@@ -1,6 +1,6 @@
 interface propType{
-    setBill:React.Dispatch<React.SetStateAction<number | string>>,
-    setPeople:React.Dispatch<React.SetStateAction<number | string>>,
+    setBill:React.Dispatch<React.SetStateAction<string>>,
+    setPeople:React.Dispatch<React.SetStateAction<string>>,
     setTipAmount:React.Dispatch<React.SetStateAction<number>>,
     setTotalAmount:React.Dispatch<React.SetStateAction<number>>,
 }
