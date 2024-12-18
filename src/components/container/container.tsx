@@ -1,5 +1,5 @@
 import DataContainer from "../dataContainer/dataContainer";
-import { useState } from "react";
+import { useState,useRef} from "react";
 import ResetButton from "../resetButton/resetButton";
 import FormSection from "../FormSection/FormSection";
 export default function Container() {
@@ -7,10 +7,12 @@ export default function Container() {
   const [people, setPeople] = useState<string>("");
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
+  const currentPercentage = useRef(0);
   const formSectionObj = {
     title:{billTitle:"Bill",peopleTitle:"Amount of people"},
     bill: bill,
     people: people,
+    currentPercentage:currentPercentage,
     setBill: setBill,
     setPeople: setPeople,
     setTipAmount: setTipAmount,
@@ -24,6 +26,7 @@ export default function Container() {
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
           <ResetButton
+            currentPercentage = {currentPercentage}
             setTipAmount={setTipAmount}
             setTotalAmount={setTotalAmount}
             setBill={setBill}
