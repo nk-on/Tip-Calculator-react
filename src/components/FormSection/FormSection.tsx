@@ -2,20 +2,22 @@ import { buttons } from "./buttons";
 import Form from "../form/form";
 import PercentageButton from "../percentageButton/PercentageButton";
 import CustomForm from "../customForm/customForm";
-interface propType{
-  bill:string,
-  people:string,
-  setBill:React.Dispatch<React.SetStateAction<string>>,
-  setPeople:React.Dispatch<React.SetStateAction< string>>,
-  setTipAmount:React.Dispatch<React.SetStateAction<number>>,
-  setTotalAmount:React.Dispatch<React.SetStateAction<number>>,
+interface propType {
+  title:{billTitle:string,peopleTitle:string},
+  bill: string;
+  people: string;
+  setBill: React.Dispatch<React.SetStateAction<string>>;
+  setPeople: React.Dispatch<React.SetStateAction<string>>;
+  setTipAmount: React.Dispatch<React.SetStateAction<number>>;
+  setTotalAmount: React.Dispatch<React.SetStateAction<number>>;
 }
-export default function FormSection({ bill, people, setBill, setPeople,setTipAmount,setTotalAmount }:propType) {
+export default function FormSection(formSectionObj:propType){
+  const {title,bill,people,setBill,setPeople,setTipAmount,setTotalAmount} = formSectionObj;
   return (
     <>
       <div className="content-center	border border-red w-[50%] h-full">
         <Form
-          title={"Bill"}
+          title={title.billTitle}
           bill={bill}
           people={people}
           setBill={setBill}
@@ -43,7 +45,7 @@ export default function FormSection({ bill, people, setBill, setPeople,setTipAmo
           />
         </div>
         <Form
-          title={"Amount of People"}
+          title={title.peopleTitle}
           bill={bill}
           people={people}
           setBill={setBill}
