@@ -19,7 +19,16 @@ export default function Form({ ...formProps }: propType) {
     setTipAmount,
     setTotalAmount,
   } = formProps;
-  console.log(currentPercentage.current)
+  function reCalculate(bill: number) {
+    if (currentPercentage.current !== 0) {
+      console.log((bill * currentPercentage.current) / 100);
+      setTipAmount((bill * currentPercentage.current) / 100);
+      setTotalAmount(
+        ((bill * currentPercentage.current) / 100) * Number(people)
+      );
+      // return;
+    }
+  }
   return (
     <>
       <div className="flex flex-col">
@@ -30,15 +39,10 @@ export default function Form({ ...formProps }: propType) {
           onChange={(event) => {
             if (formProps.title === 'Bill') {
               setBill(event.target.value);
+              reCalculate(Number(event.target.value));
             } else {
               setPeople(event.target.value);
-            }
-            if (currentPercentage.current !== 0) {
-              setTipAmount((Number(bill) * currentPercentage.current) / 100);
-              setTotalAmount(
-                ((Number(bill) * currentPercentage.current) / 100) *
-                  Number(people)
-              );
+              reCalculate(Number(event.target.value));
             }
           }}
           value={title === 'Bill' ? bill : people}
