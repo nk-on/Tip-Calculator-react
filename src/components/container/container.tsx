@@ -18,6 +18,13 @@ export default function Container() {
     setTipAmount: setTipAmount,
     setTotalAmount: setTotalAmount,
   };
+  const resetButtonProps = {
+    currentPercentage:currentPercentage,
+    setTipAmount:setTipAmount,
+    setTotalAmount:setTotalAmount,
+    setBill:setBill,
+    setPeople:setPeople
+  }
   return (
     <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
       <FormSection {...formSectionObj}/>
@@ -26,11 +33,7 @@ export default function Container() {
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
           <ResetButton
-            currentPercentage = {currentPercentage}
-            setTipAmount={setTipAmount}
-            setTotalAmount={setTotalAmount}
-            setBill={setBill}
-            setPeople={setPeople}
+           {...resetButtonProps}
           />
         </div>
       </div>
