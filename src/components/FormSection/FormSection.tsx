@@ -2,7 +2,7 @@ import { buttons } from './buttons';
 import Form from '../form/form';
 import PercentageButton from '../percentageButton/PercentageButton';
 import CustomForm from '../customForm/customForm';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 interface propType {
   title: { billTitle: string; peopleTitle: string };
   bill: string;
@@ -14,6 +14,7 @@ interface propType {
   setTotalAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 export default function FormSection(formSectionObj: propType) {
+  const [error,setError] = useState(false);
   const {
     title,
     bill,
@@ -28,6 +29,8 @@ export default function FormSection(formSectionObj: propType) {
     currentPercentage: currentPercentage,
     bill: bill,
     people: people,
+    error:error,
+    setError:setError,
     setBill: setBill,
     setPeople: setPeople,
     setTipAmount: setTipAmount,
