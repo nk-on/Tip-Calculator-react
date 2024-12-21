@@ -6,6 +6,8 @@ import { useRef, useState } from 'react';
 interface propType {
   title: { billTitle: string; peopleTitle: string };
   bill: string;
+  error:boolean;
+  setError:React.Dispatch<React.SetStateAction<boolean>>;
   people: string;
   currentPercentage: React.MutableRefObject<number>;
   setBill: React.Dispatch<React.SetStateAction<string>>;
@@ -14,10 +16,11 @@ interface propType {
   setTotalAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 export default function FormSection(formSectionObj: propType) {
-  const [error,setError] = useState(false);
   const {
     title,
     bill,
+    error,
+    setError,
     people,
     currentPercentage,
     setBill,
@@ -29,7 +32,7 @@ export default function FormSection(formSectionObj: propType) {
     currentPercentage: currentPercentage,
     bill: bill,
     people: people,
-    error,
+    error:error,
     setError:setError,
     setBill: setBill,
     setPeople: setPeople,

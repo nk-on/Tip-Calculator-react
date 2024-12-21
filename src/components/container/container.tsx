@@ -8,9 +8,12 @@ export default function Container() {
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
   const currentPercentage = useRef(0);
+  const [error,setError] = useState(false);
   const formSectionObj = {
     title:{billTitle:"Bill",peopleTitle:"Amount of people"},
     bill: bill,
+    error,
+    setError,
     people: people,
     currentPercentage:currentPercentage,
     setBill: setBill,
@@ -21,6 +24,7 @@ export default function Container() {
   const resetButtonProps = {
     currentPercentage:currentPercentage,
     setTipAmount:setTipAmount,
+    setError:setError,
     setTotalAmount:setTotalAmount,
     setBill:setBill,
     setPeople:setPeople
