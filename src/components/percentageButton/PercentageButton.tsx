@@ -21,7 +21,7 @@ export default function PercentageButton({
       <button
         className=" h-[50px] bg-[#00494d] text-[#fff] rounded-[5px]"
         onClick={() => {
-          if(Number(people) <= 0 && Number(bill) <= 0){
+          if(Number(people) <= 0 || Number(bill) <= 0){
             setError(true);
             return;
           }
