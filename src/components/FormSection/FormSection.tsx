@@ -29,7 +29,7 @@ export default function FormSection(formSectionObj: propType) {
     currentPercentage: currentPercentage,
     bill: bill,
     people: people,
-    error:error,
+    error,
     setError:setError,
     setBill: setBill,
     setPeople: setPeople,
@@ -40,7 +40,7 @@ export default function FormSection(formSectionObj: propType) {
     currentPercentage: currentPercentage,
     bill: bill,
     people: people,
-    error:error,
+    setError:setError,
     setTipAmount: setTipAmount,
     setTotalAmount: setTotalAmount,
   };

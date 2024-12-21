@@ -27,7 +27,6 @@ export default function Form({ ...formProps }: propType) {
   } = formProps;
   function reCalculate(bill: number) {
     if (currentPercentage.current !== 0) {
-      console.log((bill * currentPercentage.current) / 100);
       setTipAmount((bill * currentPercentage.current) / 100);
       setTotalAmount(
         ((bill * currentPercentage.current) / 100) * Number(people)
@@ -36,7 +35,6 @@ export default function Form({ ...formProps }: propType) {
     }
   }
   function setErrorMessage(value:string) {
-    console.log(people,bill)
     if (Number(value) <= 0) {
       setError(true);
       return true;
