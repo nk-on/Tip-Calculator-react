@@ -25,7 +25,7 @@ export default function Form({ ...formProps }: propType) {
     setTipAmount,
     setTotalAmount,
   } = formProps;
-  function reCalculate(bill: number) {
+  function reCalculate(bill: number):void {
     if (currentPercentage.current !== 0) {
       setTipAmount((bill * currentPercentage.current) / 100);
       setTotalAmount(
@@ -34,7 +34,7 @@ export default function Form({ ...formProps }: propType) {
       // return;
     }
   }
-  function setErrorMessage(value:string) {
+  function setErrorMessage(value:string):boolean {
     if (Number(value) <= 0) {
       setError(true);
       return true;
