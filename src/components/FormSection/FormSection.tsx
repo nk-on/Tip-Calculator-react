@@ -3,6 +3,7 @@ import Form from '../form/form';
 import PercentageButton from '../percentageButton/PercentageButton';
 import CustomForm from '../customForm/customForm';
 import { useRef, useState } from 'react';
+import { createSourceFile } from 'typescript';
 interface propType {
   title: { billTitle: string; peopleTitle: string };
   bill: string;
@@ -48,6 +49,7 @@ export default function FormSection(formSectionObj: propType) {
     setTotalAmount: setTotalAmount,
   };
   const customFormProps = {
+    currentPercentage:currentPercentage,
     bill:bill,
     people:people,
     setTipAmount:setTipAmount,
