@@ -30,7 +30,7 @@ export default function Container() {
     setPeople:setPeople
   }
   return (
-    <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px]">
+    <div className="flex px-[15px] bg-[#fff] w-custom h-[481px] rounded-[15px] gap-[30px]">
       <FormSection {...formSectionObj}/>
       <div className="w-[50%] h-[70%] mt-[10%]	">
         <div className="w-full h-full bg-[#01484d] rounded-[10px]   flex flex-col justify-around items-center">
