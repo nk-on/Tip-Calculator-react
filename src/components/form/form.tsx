@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface propType {
   currentPercentage: React.MutableRefObject<number>;
@@ -25,11 +25,11 @@ export default function Form({ ...formProps }: propType) {
     setTipAmount,
     setTotalAmount,
   } = formProps;
-  function reCalculate(bill: number):void {
+  function reCalculate():void {
     if (currentPercentage.current !== 0) {
-      setTipAmount((bill * currentPercentage.current) / 100);
+      setTipAmount((Number(bill) * currentPercentage.current) / 100);
       setTotalAmount(
-        ((bill * currentPercentage.current) / 100) * Number(people)
+        ((Number(bill) * currentPercentage.current) / 100) * Number(people)
       );
       // return;
     }
@@ -43,6 +43,9 @@ export default function Form({ ...formProps }: propType) {
     }
     return false;
   }
+  useEffect(()=>{
+    reCalculate();
+  },[bill,people])
   return (
     <>
       <div className="flex flex-col">
@@ -54,18 +57,16 @@ export default function Form({ ...formProps }: propType) {
           type="number"
           className={`w-[80%] h-[50px] bg-[#c4e4e6]`}
           onChange={(event) => {
-            if (formProps.title === 'Bill') {
+            if (title === 'Bill') {
+              if(setErrorMessage(event.target.value)){
+                return;
+              }
               setBill(event.target.value);
-              if(setErrorMessage(event.target.value)){
-                return;
-              }
-              reCalculate(Number(event.target.value));
             } else {
-              setPeople(event.target.value);
               if(setErrorMessage(event.target.value)){
                 return;
               }
-              reCalculate(Number(event.target.value));
+              setPeople(event.target.value);
             }
           }}
           value={title === 'Bill' ? bill : people}
