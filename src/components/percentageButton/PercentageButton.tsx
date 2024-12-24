@@ -19,7 +19,7 @@ export default function PercentageButton({
   return (
     <>
       <button
-        className=" h-[50px] bg-[#00494d] text-[#fff] rounded-[5px]"
+        className=" h-[50px] bg-[#00494d] text-[#fff] rounded-[5px] hover:bg-[#00FFBF] hover:text-[#00494d]"
         onClick={() => {
           if(Number(people) <= 0 || Number(bill) <= 0){
             setError(true);
@@ -31,7 +31,7 @@ export default function PercentageButton({
           setTotalAmount(((Number(bill) * percentage) / 100) * Number(people));
         }}
       >
-        {percentage}
+        {percentage}%
       </button>
     </>
   );
