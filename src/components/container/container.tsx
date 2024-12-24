@@ -30,9 +30,9 @@ export default function Container() {
     setPeople:setPeople
   }
   return (
-    <div className="flex flex-col items-center px-[15px] bg-[#fff] py-2.5 w-custom h-[481px] rounded-[15px] gap-[30px] md:flex-row">
+    <div className="flex flex-col  items-center px-[15px] bg-[#fff] py-2.5 w-custom min-h-[481px] rounded-[15px] gap-[30px] md:flex-row md:h-[481px]">
       <FormSection {...formSectionObj}/>
-      <div className="w-[90%] h-[70%] mt-[10%] md:w-[50%]">
+      <div className="w-[90%] h-[80%] mt-[10%] md:w-[50%]">
         <div className="h-full bg-[#01484d] rounded-[10px]   flex flex-col justify-around items-center">
           <DataContainer title={"Tip amount"} amount={tipAmount} />
           <DataContainer title={"Total amount"} amount={totalAmount} />
