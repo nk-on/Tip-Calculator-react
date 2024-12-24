@@ -55,7 +55,7 @@ export default function FormSection(formSectionObj: propType) {
   }
   return (
     <>
-      <div className="content-center	border border-red w-[50%] h-full">
+      <div className="content-center w-[50%] h-full">
         <Form {...commonFormProps} title="Bill" />
         <p>Select tip</p>
         <div className="grid grid-cols-3 gap-[5px]">
